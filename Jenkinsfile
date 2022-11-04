@@ -22,7 +22,7 @@ pipeline {
          parallel{
            stage ('Deploy to Staging'){
              steps {
-               sh "cp /home/jenkins/workspace/pipeline_as_code/webapp/target/*.war **/tomcat-staging/apache-tomcat-10.0.27/webapps"
+               sh "cp /home/jenkins/workspace/pipeline_as_code/webapp/target/*.war /opt/tomcat-staging/apache-tomcat-10.0.27/webapps/"
              }
            }
            stage ('Deploy to prod') {
