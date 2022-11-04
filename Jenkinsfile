@@ -6,6 +6,7 @@ pipeline {
   stages{
        stage ('Build'){
         steps {
+          sh 'cd /home/jenkins/workspace/pipeline_as_code'
           sh 'mvn clean package'
         }
          post {
