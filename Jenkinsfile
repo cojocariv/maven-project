@@ -1,7 +1,7 @@
 pipeline {
  agent {label 'tomcat-node'}
   triggers {
-    pollSCM('*/5 * * * *')
+    pollSCM('* * * * *')
   }
   stages{
        stage ('Build'){
@@ -19,12 +19,12 @@ pipeline {
          parallel{
            stage ('Deploy to Staging'){
              steps {
-               sh "cp **/target/*.war /home/ivan/programms/tomcat-staging/webapps"
+               sh "cp **/target/*.war **/tomcat-staging/webapps"
              }
            }
            stage ('Deploy to prod') {
              steps {
-               sh "cp **/target/*.war /home/ivan/programms/tomcat-prod/webapps"
+               sh "cp **/target/*.war **/tomcat-prod/webapps"
              }     
            }
          }
