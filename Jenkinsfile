@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+ agent {label 'tomcat-node'}
   triggers {
     pollSCM('*/5 * * * *')
   }
